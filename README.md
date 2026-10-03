@@ -1,4 +1,4 @@
-﻿# Key Word Speaking · B2 First
+# Key Word Speaking · B2 First
 
 Primera versión del ejercicio oral de Key Word Transformations del Hub de Adrián.
 
@@ -9,10 +9,13 @@ Primera versión del ejercicio oral de Key Word Transformations del Hub de Adri�
 - Se puede decir solo el hueco o la segunda frase completa; si se dicta la frase completa, la app reconoce las partes impresas y extrae automáticamente el contenido del hueco.
 - Las partes impresas reconocidas reciben un flash azul como confirmación visual.
 - La transcripción se muestra antes de corregir y puede repetirse o editarse con teclado.
+- Gboard queda libre de reescrituras durante la composición: la extracción de frase completa se aplica al comprobar, no mientras el IME está componiendo.
+- Puntuación Cambridge-style 0/1/2 por transformación; 15 preguntas = 30 puntos.
 - Maquetación Part 4 tipo libro/examen: número, frase original, keyword y segunda frase partida alrededor del hueco.
 - Estadísticas persistentes en `localStorage`.
 - Priorización ligera de preguntas poco vistas o con más fallos.
-- Sistema común de medallas: azul 13/15, violeta 14/15, oro 15/15.
+- Puntuación de práctica 0/1/2 inspirada en Cambridge Part 4: 2/2 por coincidencia completa; 1/2 conservador cuando se conserva la keyword, el límite de 2–5 palabras y una parte sustancial de la estructura. El 1/2 es una estimación porque el banco no incluye los cortes oficiales del mark scheme.
+- Sistema común de medallas, escalado proporcionalmente a 30 puntos por sesión: azul 26/30, violeta 28/30, oro 30/30.
 - PWA instalable y navegación común de vuelta al Hub.
 
 ## Principio de corrección
