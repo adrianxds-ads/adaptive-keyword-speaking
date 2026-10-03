@@ -4,9 +4,10 @@ Primera versión del ejercicio oral de Key Word Transformations del Hub de Adri�
 
 - 120 transformaciones completas reutilizadas del banco de `adaptive-exam`.
 - Sesiones de 15 preguntas.
-- Temporizador configurable: 60 / 90 / 120 segundos por transformación.
+- Temporizador configurable: 90 / 120 / 180 segundos, sin límite o tiempo personalizado por transformación.
 - Entrada principal por micrófono mediante Web Speech API (`en-GB`).
 - La transcripción se muestra antes de corregir y puede repetirse o editarse con teclado.
+- Maquetación Part 4 tipo libro/examen: número, frase original, keyword y segunda frase partida alrededor del hueco.
 - Estadísticas persistentes en `localStorage`.
 - Priorización ligera de preguntas poco vistas o con más fallos.
 - Sistema común de medallas: azul 13/15, violeta 14/15, oro 15/15.
