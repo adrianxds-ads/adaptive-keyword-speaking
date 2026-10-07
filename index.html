@@ -25,12 +25,17 @@
 #gameScreen #micStatus{font-size:15px;line-height:1.4}
 #gameScreen .recognized{color:#2366c6!important;background:#e0ebff;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 #gameScreen .recognized.heard{animation:heardFixed .72s ease-out}
+.sentence-context{font-family:Inter,Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:clamp(20px,4.6vw,26px);line-height:1.45;letter-spacing:-.01em;margin:0 0 14px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);overflow-wrap:anywhere}.second{border-radius:6px}.gap-marker{display:inline-block;min-width:3.2em;color:#0d4938;font-weight:950;letter-spacing:.04em;white-space:nowrap}.second.heard{animation:heardFixed .72s ease-out}.speech-help{font-size:11px;line-height:1.35;color:#66766e;text-align:center;margin-top:8px}.answer-box{margin:0 0 2px;display:grid;grid-template-columns:minmax(0,1fr) 58px;gap:8px;align-items:center}.answer{display:block;width:100%;min-width:0;min-height:64px;max-height:40vh;max-height:40dvh;resize:none;overflow-y:hidden;border:0;border-bottom:4px solid #2f654f;background:#e9efec;color:#183127;border-radius:16px 16px 5px 5px;padding:12px 14px;font-family:inherit;font-size:clamp(24px,6vw,30px);line-height:1.3;font-weight:850;outline:none;scroll-margin-top:12px;scroll-margin-bottom:24px}.answer.overflow{overflow-y:auto}.answer-box{align-items:start}.mic{align-self:start;margin-top:3px}body.editing .timer-wrap{margin:0 0 6px}body.editing .timer{width:44px;height:44px}body.editing .timer:after{inset:4px}body.editing .timer b{font-size:15px}body.editing .topbar{margin-bottom:4px}body.editing .back{width:40px;height:40px;font-size:19px}body.editing .paper{padding-top:14px}body.editing .question-no{margin-bottom:8px}body.editing .first{font-size:clamp(20px,4.8vw,24px);margin-bottom:10px}body.editing .keyword{font-size:18px;padding:5px 10px;margin-bottom:10px}body.editing .native-hint,body.editing .speech-help{display:none}body.editing .build-badge{display:none}.feedback,.next{scroll-margin-bottom:24px}
+.sentence-context .second{font:inherit;line-height:inherit;display:inline;margin:0}
+@media(max-width:520px){.sentence-context{font-size:21px;padding:10px 12px}.answer{font-size:26px;min-height:60px}body.editing .first{font-size:20px}}
+
+body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 </style>
 </head>
 <body>
 <div class="app">
 <section id="startScreen" class="screen center"><div class="panel hero">
-<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.3 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
+<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.4 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
 <p class="subtitle">Piensa la transformaci&oacute;n y responde como te salga natural: puedes decir o escribir solo el hueco o la segunda frase completa. La app aislar&aacute; la parte que falta.</p>
 <div id="homeStats" class="mini-stats"></div><div id="homeMedals" class="medal-host"></div>
 <div class="mode-note"><b>15 preguntas &middot; 30 puntos Cambridge.</b> Cada transformaci&oacute;n vale 0, 1 o 2 puntos. Elige el tiempo por pregunta.</div>
@@ -42,8 +47,8 @@
 <section id="gameScreen" class="screen hidden">
 <header class="topbar"><button id="quitBtn" class="back" aria-label="Salir">&lt;</button><div class="progress"><b id="progressMain">1 / 15</b><span id="paperLabel"></span></div><div id="scoreTop" class="score-top">0/30</div></header>
 <div class="timer-wrap"><div id="timer" class="timer"><b id="timerText">180</b></div></div>
-<main class="paper"><div id="questionNo" class="question-no"></div><div id="first" class="first"></div><div id="keyword" class="keyword"></div><div id="secondBefore" class="second second-before"></div>
-<div class="answer-box"><textarea id="answer" class="answer" rows="2" lang="en" autocapitalize="none" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Respuesta a esta transformación" placeholder="Hueco o frase completa..."></textarea><button id="micBtn" class="mic" aria-label="Hablar">MIC</button></div><div id="secondAfter" class="second second-after"></div>
+<main class="paper"><div id="questionNo" class="question-no"></div><div id="first" class="first"></div><div id="keyword" class="keyword"></div><div id="sentenceContext" class="sentence-context"><span id="secondBefore" class="second second-before"></span> <span class="gap-marker" aria-label="hueco">______</span> <span id="secondAfter" class="second second-after"></span></div>
+<div class="answer-box"><textarea id="answer" class="answer" rows="2" lang="en" autocapitalize="none" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Respuesta a esta transformación" placeholder="Hueco o frase completa..."></textarea><button id="micBtn" class="mic" aria-label="Hablar">MIC</button></div>
 <div id="micStatus" class="mic-status">Di la frase completa o solo el hueco.</div><div class="speech-help">Cambridge: 2-5 palabras incluyendo la keyword &middot; cada transformaci&oacute;n vale 0, 1 o 2 puntos.</div><div class="actions"><button id="retryBtn" class="secondary">BORRAR</button><button id="checkBtn" class="primary">COMPROBAR</button></div><div id="feedback" class="feedback hidden"></div><button id="nextBtn" class="primary next hidden">SIGUIENTE</button><div class="native-hint">Habla con naturalidad: puedes incluir palabras impresas de antes o después. Se marcan en azul; en el hueco queda tu respuesta. Con Gboard se separan al pulsar COMPROBAR.</div></main>
 </section>
 <section id="resultScreen" class="screen center hidden"><div class="panel result"><div class="kicker">SESIÓN COMPLETA</div><h1 id="resultScore">0/15</h1><p id="resultSub" class="subtitle"></p><div id="achievement"></div><div id="resultMedals" class="medal-host"></div><div id="review" class="review"></div><div class="row"><button id="againBtn" class="primary">OTRA SESIÓN</button><button id="resultHomeBtn" class="secondary">INICIO</button></div></div></section>
@@ -54,12 +59,12 @@
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=core-20261007"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=1.0.8"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-path-game.js?v=2.0.2-0d4fa97"></script>
-<script src="./data/cambridge-bank.js?v=1.0.3"></script>
-<script src="./data/engexam-bank.js?v=1.0.3"></script>
-<script src="./app.js?v=1.0.3"></script>
+<script src="./data/cambridge-bank.js?v=1.0.4"></script>
+<script src="./data/engexam-bank.js?v=1.0.4"></script>
+<script src="./app.js?v=1.0.4"></script>
 <script>
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('./service-worker.js?v=1.0.3',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=1.0.4',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>

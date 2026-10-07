@@ -37,3 +37,6 @@ Campo multilínea adaptable, composición Gboard preservada hasta COMPROBAR, ext
 - Contracciones equivalentes y fragmentos adyacentes del texto impreso reconocidos.
 - Con Gboard se muestra el azul sin modificar la composición; al COMPROBAR se extrae el hueco.
 - La corrección sigue siendo explícita: el micrófono no puntúa automáticamente ni completa la solución.
+
+## 1.0.4 — Claude Opus keyboard repair
+Full target sentence above the answer, compact mobile editing layout, bounded multiline input, viewport-aware scrolling, guarded IME Enter, stable action taps and stale voice callback protection. Scoring, natural dictation, 120 questions, sync and stored progress preserved. Headless checks at 360/390/412/1280px including 420px usable viewport, whole-session scoring and reload persistence. Physical Android keyboard/audio remain to be observed.
