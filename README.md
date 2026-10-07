@@ -29,3 +29,11 @@ Esta versión no incluye ninguna clave de OpenAI en el frontend. Usa el reconoci
 ## 1.0.1 · Auditoría móvil
 
 Campo multilínea adaptable, composición Gboard preservada hasta COMPROBAR, extracción por límites impresos exactos, corrección por frase y racha inmediata. Corregidos once ejercicios del banco, incluidas soluciones mal formadas, preposiciones y alternativas contraídas; combinaciones de palabras opcionales completas. Grammar/Cambridge permanece sin cambios. Se conserva la clave de progreso y el formato 0/1/2, medallas y Oca existentes.
+
+## 1.0.3 · Dictado natural
+- Respuesta a 32–40 px, también con el estilo común de texto grande.
+- El MIC admite hueco solo, palabras impresas antes, después o la frase completa; separa el hueco en directo.
+- Palabras impresas reconocidas en azul persistente, con flash al oírlas.
+- Contracciones equivalentes y fragmentos adyacentes del texto impreso reconocidos.
+- Con Gboard se muestra el azul sin modificar la composición; al COMPROBAR se extrae el hueco.
+- La corrección sigue siendo explícita: el micrófono no puntúa automáticamente ni completa la solución.

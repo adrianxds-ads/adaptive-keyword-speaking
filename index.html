@@ -16,12 +16,21 @@
 @media(max-width:520px){.screen{padding-left:9px;padding-right:9px}.panel,.paper{border-radius:17px}.panel{padding:21px 15px}.paper{padding:20px 14px}.first{font-size:27px}.second{font-size:25px}.answer{font-size:31px;min-height:88px}.hero h1{font-size:53px}.actions{grid-template-columns:1fr 1.25fr}.mini-stats{gap:6px}.stat b{font-size:19px}}
 .answer{resize:none;overflow:hidden;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.3;min-height:72px;scroll-margin:100px 0}.answer-box{align-items:start}.mic{margin-top:8px;font-size:16px}.first,.second,.feedback,.review-row{overflow-wrap:anywhere}.paper{min-width:0}.speech-help{margin-bottom:10px}
 @media(max-width:520px){.first{font-size:clamp(22px,6.5vw,27px)}.second{font-size:clamp(21px,6vw,25px)}.answer{font-size:clamp(23px,6.4vw,29px);padding:12px;min-height:72px}.answer-box{grid-template-columns:minmax(0,1fr) 48px}.mic{width:48px;height:48px}.timer{width:68px;height:68px}.timer b{font-size:21px}}
+
+/* Keep the exercise legible when Hub's common large-text stylesheet loads. */
+#gameScreen #answer{font-size:clamp(32px,8.2vw,40px)!important;line-height:1.3!important;font-weight:900}
+#gameScreen .first{font-size:clamp(28px,7.2vw,37px);line-height:1.3}
+#gameScreen .second{font-size:clamp(27px,7vw,34px);line-height:1.4}
+#gameScreen .keyword{font-size:clamp(24px,6.2vw,30px)}
+#gameScreen #micStatus{font-size:15px;line-height:1.4}
+#gameScreen .recognized{color:#2366c6!important;background:#e0ebff;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#gameScreen .recognized.heard{animation:heardFixed .72s ease-out}
 </style>
 </head>
 <body>
 <div class="app">
 <section id="startScreen" class="screen center"><div class="panel hero">
-<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.2 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
+<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.3 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
 <p class="subtitle">Piensa la transformaci&oacute;n y responde como te salga natural: puedes decir o escribir solo el hueco o la segunda frase completa. La app aislar&aacute; la parte que falta.</p>
 <div id="homeStats" class="mini-stats"></div><div id="homeMedals" class="medal-host"></div>
 <div class="mode-note"><b>15 preguntas &middot; 30 puntos Cambridge.</b> Cada transformaci&oacute;n vale 0, 1 o 2 puntos. Elige el tiempo por pregunta.</div>
@@ -35,7 +44,7 @@
 <div class="timer-wrap"><div id="timer" class="timer"><b id="timerText">180</b></div></div>
 <main class="paper"><div id="questionNo" class="question-no"></div><div id="first" class="first"></div><div id="keyword" class="keyword"></div><div id="secondBefore" class="second second-before"></div>
 <div class="answer-box"><textarea id="answer" class="answer" rows="2" lang="en" autocapitalize="none" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Respuesta a esta transformación" placeholder="Hueco o frase completa..."></textarea><button id="micBtn" class="mic" aria-label="Hablar">MIC</button></div><div id="secondAfter" class="second second-after"></div>
-<div id="micStatus" class="mic-status">Di la frase completa o solo el hueco.</div><div class="speech-help">Cambridge: 2-5 palabras incluyendo la keyword &middot; cada transformaci&oacute;n vale 0, 1 o 2 puntos.</div><div class="actions"><button id="retryBtn" class="secondary">BORRAR</button><button id="checkBtn" class="primary">COMPROBAR</button></div><div id="feedback" class="feedback hidden"></div><button id="nextBtn" class="primary next hidden">SIGUIENTE</button><div class="native-hint">También puedes usar el micrófono de Gboard. Si dictas la frase completa, la app aislará automáticamente el hueco.</div></main>
+<div id="micStatus" class="mic-status">Di la frase completa o solo el hueco.</div><div class="speech-help">Cambridge: 2-5 palabras incluyendo la keyword &middot; cada transformaci&oacute;n vale 0, 1 o 2 puntos.</div><div class="actions"><button id="retryBtn" class="secondary">BORRAR</button><button id="checkBtn" class="primary">COMPROBAR</button></div><div id="feedback" class="feedback hidden"></div><button id="nextBtn" class="primary next hidden">SIGUIENTE</button><div class="native-hint">Habla con naturalidad: puedes incluir palabras impresas de antes o después. Se marcan en azul; en el hueco queda tu respuesta. Con Gboard se separan al pulsar COMPROBAR.</div></main>
 </section>
 <section id="resultScreen" class="screen center hidden"><div class="panel result"><div class="kicker">SESIÓN COMPLETA</div><h1 id="resultScore">0/15</h1><p id="resultSub" class="subtitle"></p><div id="achievement"></div><div id="resultMedals" class="medal-host"></div><div id="review" class="review"></div><div class="row"><button id="againBtn" class="primary">OTRA SESIÓN</button><button id="resultHomeBtn" class="secondary">INICIO</button></div></div></section>
 <section id="statsScreen" class="screen center hidden"><div class="panel"><div class="kicker">HISTORIAL</div><h1 style="margin:8px 0 4px">Estadísticas</h1><div id="statsSummary" class="stats-list"></div><div id="statsMedals" class="stats-medals"></div><button id="statsHomeBtn" class="primary">VOLVER</button></div></section>
@@ -45,12 +54,12 @@
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=core-20261007"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=1.0.8"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-path-game.js?v=2.0.2-0d4fa97"></script>
-<script src="./data/cambridge-bank.js?v=1.0.2"></script>
-<script src="./data/engexam-bank.js?v=1.0.2"></script>
-<script src="./app.js?v=1.0.2"></script>
+<script src="./data/cambridge-bank.js?v=1.0.3"></script>
+<script src="./data/engexam-bank.js?v=1.0.3"></script>
+<script src="./app.js?v=1.0.3"></script>
 <script>
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('./service-worker.js?v=1.0.2',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=1.0.3',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>
