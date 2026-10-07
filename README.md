@@ -25,3 +25,7 @@ La voz nunca corrige automáticamente. Primero rellena el hueco con lo que el na
 ## Privacidad / arquitectura
 
 Esta versión no incluye ninguna clave de OpenAI en el frontend. Usa el reconocimiento de voz disponible en el navegador y permite también el dictado del teclado del sistema.
+
+## 1.0.1 · Auditoría móvil
+
+Campo multilínea adaptable, composición Gboard preservada hasta COMPROBAR, extracción por límites impresos exactos, corrección por frase y racha inmediata. Corregidos once ejercicios del banco, incluidas soluciones mal formadas, preposiciones y alternativas contraídas; combinaciones de palabras opcionales completas. Grammar/Cambridge permanece sin cambios. Se conserva la clave de progreso y el formato 0/1/2, medallas y Oca existentes.
