@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -31,17 +31,39 @@
 
 body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 </style>
+<style>
+
+#startScreen .panel{min-width:0;width:100%;padding:24px!important;background:var(--ad-surface,#18272c)!important;color:var(--ad-text,#f3f7f8)!important}
+#startScreen h1{font-size:32px!important;line-height:1.2!important;letter-spacing:-.025em!important}
+#startScreen .subtitle{font-size:18px!important;line-height:1.45!important}
+#startScreen .meta,#startScreen .read-first-row small,#startScreen .read-first-mode small{font-size:14px!important;line-height:1.45!important;color:#b6c6cc!important}
+#startScreen .primary{background:var(--ad-accent,#4aa7c8)!important;color:#061419!important}
+#startScreen .primary,#startScreen .secondary,#startScreen .ghost,#startScreen .time-choice{min-height:56px!important;font-size:16px!important;border-radius:16px!important;line-height:1.3!important}
+#startScreen .actions{margin-top:16px!important}
+#startScreen .dashboard-menu{gap:12px!important}
+#startScreen .menu-btn b{font-size:16px!important}
+#startScreen .menu-btn span{font-size:13px!important;line-height:1.4!important}
+#startScreen .home-details{margin:20px 0;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:0 16px}
+#startScreen .home-details>summary{cursor:pointer;min-height:56px;display:flex;align-items:center;font-size:16px;font-weight:800;color:#f3f7f8}
+#startScreen .home-details[open]{padding-bottom:16px}
+#startScreen .level-next-shortcut{display:none!important}
+#startScreen button:focus-visible,#startScreen summary:focus-visible{outline:3px solid #e7bf57!important;outline-offset:3px}
+@media(max-width:520px){#startScreen .panel{padding:20px 16px!important}#startScreen .dashboard-menu{grid-template-columns:1fr!important}#startScreen .primary{min-width:0!important;width:100%}}
+
+#startScreen .hero h1{font-size:32px!important;line-height:1.2!important}#startScreen .subtitle{font-size:16px!important;color:#b6c6cc!important}#startScreen .row{flex-wrap:wrap}#startScreen .row>*{flex-basis:150px}#startScreen .custom-time input{font-size:16px;min-height:56px}#startScreen .stat b{color:#183127}#startScreen .stat span{font-size:12px;letter-spacing:0}#startScreen .kicker,#startScreen .support:not(.bad){color:#b6c6cc}
+</style>
 </head>
 <body>
 <div class="app">
 <section id="startScreen" class="screen center"><div class="panel hero">
-<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.4 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
+<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.5 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
 <p class="subtitle">Piensa la transformaci&oacute;n y responde como te salga natural: puedes decir o escribir solo el hueco o la segunda frase completa. La app aislar&aacute; la parte que falta.</p>
-<div id="homeStats" class="mini-stats"></div><div id="homeMedals" class="medal-host"></div>
+
 <div class="mode-note"><b>15 preguntas &middot; 30 puntos Cambridge.</b> Cada transformaci&oacute;n vale 0, 1 o 2 puntos. Elige el tiempo por pregunta.</div>
-<div class="time-choices"><button class="time-choice" data-sec="90">90 s</button><button class="time-choice" data-sec="120">120 s</button><button class="time-choice active" data-sec="180">3 min</button><button class="time-choice" data-sec="0">∞</button></div><div class="custom-time"><input id="customTime" type="number" inputmode="numeric" min="15" step="15" placeholder="Otro tiempo en segundos"><button id="customTimeBtn" class="secondary">USAR</button></div>
+<div class="time-choices"><button class="time-choice" data-sec="90">90 s</button><button class="time-choice" data-sec="120">120 s</button><button class="time-choice active" data-sec="180">3 min</button><button class="time-choice" data-sec="0">∞</button></div><div class="custom-time"><input id="customTime" aria-label="Tiempo por pregunta en segundos" type="number" inputmode="numeric" min="15" step="15" placeholder="Otro tiempo en segundos"><button id="customTimeBtn" class="secondary">USAR</button></div>
 <button id="startBtn" class="primary">EMPEZAR · VOZ + TECLADO</button>
 <div class="row" style="margin-top:8px"><button id="statsBtn" class="secondary">ESTADÍSTICAS</button><button id="practiceBtn" class="secondary">PRUEBA DE MICRO</button></div>
+<div id="homeStats" class="mini-stats"></div><div id="homeMedals" class="medal-host"></div>
 <p id="speechSupport" class="support"></p>
 </div></section>
 <section id="gameScreen" class="screen hidden">
@@ -58,13 +80,13 @@ body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-sync.js?v=1.0.8-0d4fa97"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=core-20261007"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=1.0.8"></script>
-<script src="https://adrianxds-ads.github.io/adrian-core/components/hub-path-game.js?v=2.0.2-0d4fa97"></script>
-<script src="./data/cambridge-bank.js?v=1.0.4"></script>
-<script src="./data/engexam-bank.js?v=1.0.4"></script>
-<script src="./app.js?v=1.0.4"></script>
+
+<script src="./data/cambridge-bank.js?v=1.0.5"></script>
+<script src="./data/engexam-bank.js?v=1.0.5"></script>
+<script src="./app.js?v=1.0.5"></script>
 <script>
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('./service-worker.js?v=1.0.4',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=1.0.5',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>
