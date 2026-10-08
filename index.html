@@ -56,7 +56,7 @@ body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 <body>
 <div class="app">
 <section id="startScreen" class="screen center"><div class="panel hero">
-<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.5 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
+<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.6 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
 <p class="subtitle">Piensa la transformaci&oacute;n y responde como te salga natural: puedes decir o escribir solo el hueco o la segunda frase completa. La app aislar&aacute; la parte que falta.</p>
 
 <div class="mode-note"><b>15 preguntas &middot; 30 puntos Cambridge.</b> Cada transformaci&oacute;n vale 0, 1 o 2 puntos. Elige el tiempo por pregunta.</div>
@@ -81,13 +81,16 @@ body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=core-20261007"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=1.0.8"></script>
 
-<script src="./data/cambridge-bank.js?v=1.0.5"></script>
-<script src="./data/engexam-bank.js?v=1.0.5"></script>
-<script src="./app.js?v=1.0.5"></script>
+<script src="./data/cambridge-bank.js?v=1.0.6"></script>
+<script src="./data/engexam-bank.js?v=1.0.6"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/hub-charts.js?v=1.0.0"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-performance.js?v=1.1.0"></script>
+<script src="./app.js?v=1.0.6"></script>
 <script>
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('./service-worker.js?v=1.0.5',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=1.0.6',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>
+<script src="./performance-adapter.js?v=1.1.0"></script>
 </body></html>
