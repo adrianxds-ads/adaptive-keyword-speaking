@@ -50,13 +50,13 @@ body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 #startScreen button:focus-visible,#startScreen summary:focus-visible{outline:3px solid #e7bf57!important;outline-offset:3px}
 @media(max-width:520px){#startScreen .panel{padding:20px 16px!important}#startScreen .dashboard-menu{grid-template-columns:1fr!important}#startScreen .primary{min-width:0!important;width:100%}}
 
-#startScreen .hero h1{font-size:32px!important;line-height:1.2!important}#startScreen .subtitle{font-size:16px!important;color:#b6c6cc!important}#startScreen .row{flex-wrap:wrap}#startScreen .row>*{flex-basis:150px}#startScreen .custom-time input{font-size:16px;min-height:56px}#startScreen .stat b{color:#183127}#startScreen .stat span{font-size:12px;letter-spacing:0}#startScreen .kicker,#startScreen .support:not(.bad){color:#b6c6cc}
+#startScreen .hero h1{font-size:32px!important;line-height:1.2!important}#startScreen .subtitle{font-size:16px!important;color:#b6c6cc!important}#startScreen .row{flex-wrap:wrap}#startScreen .row>*{flex-basis:150px}#startScreen .custom-time input{font-size:16px;min-height:56px}#startScreen .stat,#startScreen .mode-note{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--ad-text,#f3f7f8)}#startScreen .stat b{color:var(--ad-text,#f3f7f8)}#startScreen .stat span{font-size:12px;letter-spacing:0;color:#b6c6cc}#startScreen .mode-note{font-size:14px;line-height:1.45}#startScreen .kicker,#startScreen .support:not(.bad){color:#b6c6cc}
 </style>
 </head>
 <body>
 <div class="app">
 <section id="startScreen" class="screen center"><div class="panel hero">
-<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.7 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
+<div style="position:absolute;top:10px;right:14px;font-size:10px;font-weight:900;opacity:.55">v1.0.8 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>Key Word<br>Speaking</h1>
 <p class="subtitle">Piensa la transformaci&oacute;n y responde como te salga natural: puedes decir o escribir solo el hueco o la segunda frase completa. La app aislar&aacute; la parte que falta.</p>
 
 <div class="mode-note"><b>15 preguntas &middot; 30 puntos Cambridge.</b> Cada transformaci&oacute;n vale 0, 1 o 2 puntos. Elige el tiempo por pregunta.</div>
@@ -81,14 +81,14 @@ body.editing #gameScreen #answer{font-size:clamp(26px,7vw,34px)!important}
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=core-20261007"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=celebration-20261008"></script>
 
-<script src="./data/cambridge-bank.js?v=1.0.7"></script>
-<script src="./data/engexam-bank.js?v=1.0.7"></script>
+<script src="./data/cambridge-bank.js?v=1.0.8"></script>
+<script src="./data/engexam-bank.js?v=1.0.8"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-charts.js?v=1.1.0"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-performance.js?v=1.1.0"></script>
-<script src="./app.js?v=1.0.7"></script>
+<script src="./app.js?v=1.0.8"></script>
 <script>
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('./service-worker.js?v=1.0.7',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=1.0.8',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>
