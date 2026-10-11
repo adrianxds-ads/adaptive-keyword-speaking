@@ -1,7 +1,7 @@
 importScripts('./build-assets.js','./sw-integrity.js');
 const CACHE_PREFIX='keyword-speaking-';
 const CACHE=CACHE_PREFIX+self.AdrianRelease.build;
-const ASSETS=['./nucleo-global-v44.css?v=4.4.1','./nucleo-oled-shell.css?v=1.0.0','./nucleo-game-theme.css','./learning-feedback.js','./','./index.html','./app.js','./data/cambridge-bank.js','./data/engexam-bank.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','/adrian-core/design/adrian-visual-system.js','/adrian-core/components/adrian-achievements.js','/adrian-core/components/adrian-sync.js'];
+const ASSETS=['./nucleo-global-v45.css?v=4.5.0','./nucleo-global-v44.css?v=4.4.1','./nucleo-oled-shell.css?v=1.0.0','./nucleo-game-theme.css','./learning-feedback.js','./','./index.html','./app.js','./data/cambridge-bank.js','./data/engexam-bank.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','/adrian-core/design/adrian-visual-system.js','/adrian-core/components/adrian-achievements.js','/adrian-core/components/adrian-sync.js'];
 async function keywordMatch(cache,req){const hit=await cache.match(req,{ignoreSearch:true});return await releaseValid(req,hit)?hit:undefined;}
 const CORE_RE=/\.(?:html|js|css|json|webmanifest)$/i;
 function withTimeout(req,ms,init={}){const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);return releaseFetch(req,{...init,signal:c.signal}).finally(()=>clearTimeout(t));}
