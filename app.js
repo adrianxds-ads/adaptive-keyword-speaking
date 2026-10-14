@@ -1,4 +1,4 @@
-const APP_VERSION='1.1.10';
+const APP_VERSION='1.1.12';
 window.KEYWORD_SPEAKING_VERSION=APP_VERSION;
 const $=id=>document.getElementById(id);
 const PAPERS=[...(window.ADAPTIVE_EXAM_CAMBRIDGE_PAPERS||[]),...(window.ADAPTIVE_EXAM_PAPERS||[])];
