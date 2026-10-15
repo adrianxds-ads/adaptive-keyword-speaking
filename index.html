@@ -142,11 +142,31 @@ body {
   background-color: var(--timer-warning) !important;
 }
 </style>
-<link rel="stylesheet" href="/adrian-core/design/integrated-v11/integrated-theme.css"></head>
+<link rel="stylesheet" href="/adrian-core/design/integrated-v11/integrated-theme.css"><style id="nucleo-keyword-stats-320">
+/* Narrow-screen statistical grid: presentation only, no engine or storage change. */
+html body[data-integrated-app] #statsScreen#statsScreen{
+  grid-template-columns:minmax(0,1fr);
+  justify-items:stretch;
+  min-width:0;
+}
+html body[data-integrated-app] #statsScreen#statsScreen>.panel{
+  box-sizing:border-box;
+  min-width:0;
+  width:100%;
+  max-width:100%;
+}
+html body[data-integrated-app] #statsScreen#statsScreen .ql-evidence{
+  box-sizing:border-box;
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:break-word;
+}
+</style>
+</head>
 <body data-nucleo-game="keyword" data-integrated-app="transform" style="--integrated-tint:#DAE0CC;--integrated-accent:#A9CE5E">
 <div class="app">
 <section id="startScreen" class="screen center"><div class="panel hero">
-<div class="version-badge" style="position:static;margin-bottom:12px">v1.1.12 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>B2<br>Transform</h1>
+<div class="version-badge" style="position:static;margin-bottom:12px">v1.1.13 · HUB</div><div class="kicker">B2 FIRST · PART 4 · SPEAKING MODE</div><h1>B2<br>Transform</h1>
 <p class="subtitle">Piensa la transformaci&oacute;n y responde como te salga natural: puedes decir o escribir solo el hueco o la segunda frase completa. La app aislar&aacute; la parte que falta.</p>
 
 <div class="mode-note"><b>15 preguntas &middot; 30 puntos Cambridge.</b> Cada transformaci&oacute;n vale 0, 1 o 2 puntos. Elige el tiempo por pregunta.</div>
@@ -176,15 +196,15 @@ body {
 <script src="./data/engexam-bank.js?v=1.1.0"></script>
 <script src="/adrian-core/components/hub-charts.js?v=1.1.0"></script>
 <script src="/adrian-core/components/adrian-performance.js?v=1.1.0"></script>
-<script src="./app.js?v=1.1.3-ux20261011"></script>
+<script src="./app.js?v=1.1.13"></script>
 <script>
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('./service-worker.js?v=ux20261011-adaptive-keyword-speaking',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=1.1.13',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script>
 <script src="/adrian-core/components/hub-quiz-ux.js?v=20261011-1"></script>
 <script src="/adrian-core/components/hub-nav.js?v=12-20261011"></script>
-<script src="./performance-adapter.js?v=1.1.0"></script>
+<script src="./performance-adapter.js?v=1.1.13"></script>
 <script id="unified-timer-script">
 (function() {
   function initTimer() {
